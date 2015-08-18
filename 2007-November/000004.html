@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Portpkg-devel] [buildlog] ntfs-3g-200739201739.buildlog.gz
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/portpkg-devel/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:portpkg-devel%40lists.berlios.de?Subject=Re%3A%20%5BPortpkg-devel%5D%20%5Bbuildlog%5D%20ntfs-3g-200739201739.buildlog.gz&In-Reply-To=%3C1195661799l.2761l.0l%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Portpkg-devel] [buildlog] ntfs-3g-200739201739.buildlog.gz</H1>
+    <B>T. Pfaff</B> 
+    <A HREF="mailto:portpkg-devel%40lists.berlios.de?Subject=Re%3A%20%5BPortpkg-devel%5D%20%5Bbuildlog%5D%20ntfs-3g-200739201739.buildlog.gz&In-Reply-To=%3C1195661799l.2761l.0l%40localhost%3E"
+       TITLE="[Portpkg-devel] [buildlog] ntfs-3g-200739201739.buildlog.gz">topf at users.berlios.de
+       </A><BR>
+    <I>Wed Nov 21 17:16:34 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[Portpkg-devel] [buildlog] ntfs-3g-200739201739.buildlog.gz
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Portpkg-devel] [upload] rar-3.7.1-i386-1sh-200715240215.tar.bz2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 11/20/2007 05:38:18 PM, <A HREF="https://lists.berlios.de/mailman/listinfo/portpkg-devel">portpkg-devel at berlios.de</A> wrote:
+&gt;<i> $ ARCH=i686 SLKCFLAGS=&quot;-O2 -march=i686 -mcpu=i586&quot; TMP=/tmp OUTPUT=/
+</I>&gt;<i> tmp fakeroot sh -e -x /var/portpkg/ports/z/slackbuilds/system/
+</I>&gt;<i> ntfs-3g/ntfs-3g.SlackBuild --cleanup
+</I>[snip]
+&gt;<i> make[3]: Entering directory `/tmp/ntfs-3g-1.1030/src'
+</I>&gt;<i> /sbin/ldconfig
+</I>&gt;<i> /sbin/ldconfig: Can't create temporary cache file /etc/ld.so.cache~: 
+</I>&gt;<i> Permission denied
+</I>
+Hmm, it's a Slackbuilds.org script... portpkg's part looks ok here, 
+but ntfs-3g's Makefile doesn't like to install having no root 
+permissions, thus there're two options:
+
+1. disable fakeroot and try again:
+
+  touch /var/portpkg/ports/z/slackbuilds/system/ntfs-3g/no-fakeroot
+
+2. ask the SlackBuild maintainer for fixing it for use with fakeroot.
+
+Regards,
+  Tom
+
+--
+The Portpkg Project - <A HREF="http://portpkg.berlios.de">http://portpkg.berlios.de</A>
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/portpkg-devel/attachments/20071121/4561f0fa/attachment.pgp">https://lists.berlios.de/pipermail/portpkg-devel/attachments/20071121/4561f0fa/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[Portpkg-devel] [buildlog] ntfs-3g-200739201739.buildlog.gz
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Portpkg-devel] [upload] rar-3.7.1-i386-1sh-200715240215.tar.bz2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/portpkg-devel">More information about the Portpkg-devel
+mailing list</a><br>
+</body></html>

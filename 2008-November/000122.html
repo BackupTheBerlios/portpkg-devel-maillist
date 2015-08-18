@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Portpkg-devel] Version comparison and shared ports tree.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/portpkg-devel/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:portpkg-devel%40lists.berlios.de?Subject=Re%3A%20%5BPortpkg-devel%5D%20Version%20comparison%20and%20shared%20ports%20tree.&In-Reply-To=%3C868cfe70811192249h1acd4b9fr32353e4c89b68bbf%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000121.html">
+   <LINK REL="Next"  HREF="000123.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Portpkg-devel] Version comparison and shared ports tree.</H1>
+    <B>A.J. Venter</B> 
+    <A HREF="mailto:portpkg-devel%40lists.berlios.de?Subject=Re%3A%20%5BPortpkg-devel%5D%20Version%20comparison%20and%20shared%20ports%20tree.&In-Reply-To=%3C868cfe70811192249h1acd4b9fr32353e4c89b68bbf%40mail.gmail.com%3E"
+       TITLE="[Portpkg-devel] Version comparison and shared ports tree.">aj at outkastsolutions.co.za
+       </A><BR>
+    <I>Thu Nov 20 07:49:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000121.html">[Portpkg-devel] [buildlog] mldonkey-200811071133.buildlog.gz
+</A></li>
+        <LI>Next message: <A HREF="000123.html">[Portpkg-devel] [buildlog] imagemagick-200811241314.buildlog.gz
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#122">[ date ]</a>
+              <a href="thread.html#122">[ thread ]</a>
+              <a href="subject.html#122">[ subject ]</a>
+              <a href="author.html#122">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi portpkg developers :)
+
+I'm the lead developer of kongoni, a slackware based distro currently
+in development that intends to use portpkg as our default package
+manager.
+For the most part, very well done on what is possibly the best and
+most slack-like slackware package management system I've encountered.
+Not to mention that ports came from BSD systems and slackware was
+based on BSD systems so it's a natural fit that was way overdue.
+
+I do see two things that present room for improvement though. The
+first lies in the version comparison. Currently, portpkg seems to
+assume that the version of a package in the repo if different from the
+locally installed one, is always newer. This causes problems though -
+for example people using Robbie's KDE4 packages with the slackware
+binary tree enabled will find portpkg trying to 'upgrade' their KDE4
+packages to KDE3 packages.
+Fair enough - I've written code in this field and I know that version
+comparisons are hard. The Debian guys came up with what is probably
+the most reliable algorithm available though and it's fairly simple to
+implement.
+So my first question is, if I were to write a debian algorithm based
+version comparison algorithm for portpkg would you accept the patch
+upstream ? The original code for dpkg is written in C but the
+algorithm can be implemented in any language. The below description
+comes from the dpkg manpage:
+--------
+First the initial part of each string consisting entirely of non-digit
+characters is determined. These two parts (one of which may be empty)
+are compared lexically. If a difference is found it is returned. The
+lexical comparison is a comparison of ASCII values modified so that
+all the letters sort earlier than all the non-letters and so that a
+tilde sorts before anything, even the end of a part. For example, the
+following parts are in sorted order from earliest to latest: ~~, ~~a,
+~, the empty part, a.[36]
+
+Then the initial part of the remainder of each string which consists
+entirely of digit characters is determined. The numerical values of
+these two parts are compared, and any difference found is returned as
+the result of the comparison. For these purposes an empty string
+(which can only occur at the end of one or both version strings being
+compared) counts as zero.
+
+These two steps (comparing and removing initial non-digit strings and
+initial digit strings) are repeated until a difference is found or
+both strings are exhausted.
+--------
+
+Granted this requires at least SOME sanity in package version numbers
+but in my tests on slackware like package it had a very high success
+rate (more accurately, I never saw it fail - I just know it could).
+
+If I wanted to implement such a check for portpkg, where in the code
+should I start to look ? I haven't fully studied the code for portpkg
+yet but I will be doing so in the near future.
+
+The next question is more specific to the task of using portpkg as the
+default package manager in the distro - in that scenario, you do not
+want the ports tree to be replicated by every single user, you want
+downloads of dist files etc. to be shared.
+I have a suggestion on how I would like to implement this, which does
+not require any changes to portpkg but I would like your thoughts on
+it as the core developers.
+
+1) Create a system user called portpkg with a home directory in /usr/portpkg
+2) Change the owning user of /usr/bin/portpkg to portpkg and set the
+sticky bit on it.
+At this stage, portpkg will always run as the user portpkg, and will
+work in the /usr/portpkg directory.
+This however causes one small problem - updated portpkg packages will
+reset permissions on portpkg.
+So the next version is:
+2)Create a group called portpkg as well, set up sudoers so that
+members of this group can run
+sudo -u portpkg (with any options)
+3) Add the needed configs for the portpkg user to be able to run
+upgradepkg with root privileges over sudo.
+
+Now there is a single shared repository, any user who belongs to the
+portpkg group can run portpkg (though it needs to be done with sudo
+but a wrapper script/frontend can handle that) and nobody needs to
+know the root password. By controlling membership of the portpkg
+group, the admin can decide which users should have the ability to
+install software.
+
+Ciao
+A.J.
+-- 
+A.J. Venter
+Tel.: +27 21 554 5059
+Fax: +27 11 252 9197
+Outkast Solutions IT
+www.outkastsolutions.co.za
+A division of Global Pact Trading Pty Ltd.
+
+www.silentcoder.co.za - Blog
+scartoonz.silentcoder.co.za - ScarToonz webcomic
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000121.html">[Portpkg-devel] [buildlog] mldonkey-200811071133.buildlog.gz
+</A></li>
+	<LI>Next message: <A HREF="000123.html">[Portpkg-devel] [buildlog] imagemagick-200811241314.buildlog.gz
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#122">[ date ]</a>
+              <a href="thread.html#122">[ thread ]</a>
+              <a href="subject.html#122">[ subject ]</a>
+              <a href="author.html#122">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/portpkg-devel">More information about the Portpkg-devel
+mailing list</a><br>
+</body></html>

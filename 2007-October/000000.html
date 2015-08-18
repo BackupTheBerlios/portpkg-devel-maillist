@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Portpkg-devel] Buildlog: libcap.buildlog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/portpkg-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:portpkg-devel%40lists.berlios.de?Subject=Re%3A%20%5BPortpkg-devel%5D%20Buildlog%3A%20libcap.buildlog&In-Reply-To=%3C200710121604.l9CG4i8j004211%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Portpkg-devel] Buildlog: libcap.buildlog</H1>
+    <B>Daemon user for apache</B> 
+    <A HREF="mailto:portpkg-devel%40lists.berlios.de?Subject=Re%3A%20%5BPortpkg-devel%5D%20Buildlog%3A%20libcap.buildlog&In-Reply-To=%3C200710121604.l9CG4i8j004211%40unicorn.berlios.de%3E"
+       TITLE="[Portpkg-devel] Buildlog: libcap.buildlog">wwwrun at unicorn.berlios.de
+       </A><BR>
+    <I>Fri Oct 12 18:04:44 CEST 2007</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This is an automatic bug report, uploaded on <A HREF="http://portpkg.berlios.de:">http://portpkg.berlios.de:</A>
+
++ VERSION=1.10
++ ARCH=i486
++ BUILD=2tom
+++ pwd
++ CWD=/usr/ports/l/libcap
+++ basename /usr/ports/l/libcap
++ NAME=libcap
++ PKG=/tmp/package-libcap
++ rm -rf /tmp/package-libcap
++ mkdir -p /tmp/package-libcap/usr
++ cd /tmp
++ tar xzvf /usr/ports/l/libcap/libcap-1.10.tar.gz
+libcap-1.10/
+libcap-1.10/doc/
+libcap-1.10/doc/old/
+libcap-1.10/doc/old/README
+libcap-1.10/doc/old/_fgetfilecap.2
+libcap-1.10/doc/old/_fsetfilecap.2
+libcap-1.10/doc/old/_getfilecap.2
+libcap-1.10/doc/old/_getproccap.2
+libcap-1.10/doc/old/_setfilecap.2
+libcap-1.10/doc/old/_setproccap.2
+libcap-1.10/doc/old/cap_get_fd.3
+libcap-1.10/doc/old/cap_get_file.3
+libcap-1.10/doc/old/getcap.8
+libcap-1.10/doc/old/setcap.8
+libcap-1.10/doc/capset.2
+libcap-1.10/doc/Makefile
+libcap-1.10/doc/_cap_names.3
+libcap-1.10/doc/cap_clear.3
+libcap-1.10/doc/cap_copy_ext.3
+libcap-1.10/doc/cap_copy_int.3
+libcap-1.10/doc/cap_dup.3
+libcap-1.10/doc/cap_free.3
+libcap-1.10/doc/cap_from_text.3
+libcap-1.10/doc/cap_get_flag.3
+libcap-1.10/doc/cap_get_proc.3
+libcap-1.10/doc/cap_init.3
+libcap-1.10/doc/cap_set_fd.3
+libcap-1.10/doc/cap_set_file.3
+libcap-1.10/doc/cap_set_flag.3
+libcap-1.10/doc/cap_set_proc.3
+libcap-1.10/doc/cap_size.3
+libcap-1.10/doc/cap_to_text.3
+libcap-1.10/doc/capability.notes
+libcap-1.10/doc/capget.2
+libcap-1.10/doc/capgetp.3
+libcap-1.10/doc/capsetp.3
+libcap-1.10/CHANGELOG
+libcap-1.10/License
+libcap-1.10/README
+libcap-1.10/Make.Rules
+libcap-1.10/Makefile
+libcap-1.10/pgp.keys.asc
+libcap-1.10/libcap/
+libcap-1.10/libcap/include/
+libcap-1.10/libcap/include/sys/
+libcap-1.10/libcap/include/sys/capability.h
+libcap-1.10/libcap/Makefile
+libcap-1.10/libcap/_makenames.c
+libcap-1.10/libcap/cap_alloc.c
+libcap-1.10/libcap/cap_extint.c
+libcap-1.10/libcap/cap_file.c
+libcap-1.10/libcap/cap_flag.c
+libcap-1.10/libcap/cap_proc.c
+libcap-1.10/libcap/cap_sys.c
+libcap-1.10/libcap/cap_text.c
+libcap-1.10/libcap/libcap.h
+libcap-1.10/template.c
+libcap-1.10/progs/
+libcap-1.10/progs/old/
+libcap-1.10/progs/old/README
+libcap-1.10/progs/old/getcap.c
+libcap-1.10/progs/old/setcap.c
+libcap-1.10/progs/Makefile
+libcap-1.10/progs/execcap.c
+libcap-1.10/progs/getpcaps.c
+libcap-1.10/progs/setpcaps.c
+libcap-1.10/progs/sucap.c
++ cd libcap-1.10
++ chown -R root.root .
++ make
+make -C libcap CC='gcc' CFLAGS='-Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include' LD='ld' LIBS='-L/tmp/libcap-1.10/libcap -lcap' LDFLAGS='-s ' VERSION='1' MINOR='10' LIBDIR='/lib' INCDIR='/usr/include' SBINDIR='/sbin' MANDIR='/usr/man' all
+make[1]: Entering directory `/tmp/libcap-1.10/libcap'
+=&gt; making cap_names.c from &lt;linux/capability.h&gt;
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -s  _makenames.c -o _makenames
+_makenames.c: In function 'main':
+_makenames.c:30: warning: traditional C rejects ISO C style function definitions
+_makenames.c:48: warning: traditional C rejects string constant concatenation
+_makenames.c:60: warning: traditional C rejects string constant concatenation
+./_makenames &gt; cap_names.h
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -c cap_alloc.c -o cap_alloc.o
+In file included from cap_alloc.c:12:
+libcap.h:57:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:58:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:101:25: warning: ISO C does not permit named variadic macros
+cap_alloc.c: In function 'cap_init':
+cap_alloc.c:19: warning: traditional C rejects ISO C style function definitions
+cap_alloc.c:26:28: warning: ISO C99 requires rest arguments to be used
+cap_alloc.c: In function '_libcap_strdup':
+cap_alloc.c:46: warning: traditional C rejects ISO C style function definitions
+cap_alloc.c: In function 'cap_dup':
+cap_alloc.c:73: warning: traditional C rejects ISO C style function definitions
+cap_alloc.c:77:27: warning: ISO C99 requires rest arguments to be used
+cap_alloc.c:84:28: warning: ISO C99 requires rest arguments to be used
+cap_alloc.c: In function 'cap_free':
+cap_alloc.c:99: warning: traditional C rejects ISO C style function definitions
+cap_alloc.c:118:65: warning: ISO C99 requires rest arguments to be used
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -c cap_proc.c -o cap_proc.o
+In file included from cap_proc.c:11:
+libcap.h:57:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:58:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:101:25: warning: ISO C does not permit named variadic macros
+cap_proc.c: In function 'cap_get_proc':
+cap_proc.c:14: warning: traditional C rejects ISO C style function definitions
+cap_proc.c:20:52: warning: ISO C99 requires rest arguments to be used
+cap_proc.c: In function 'cap_set_proc':
+cap_proc.c:32: warning: traditional C rejects ISO C style function definitions
+cap_proc.c:40:46: warning: ISO C99 requires rest arguments to be used
+cap_proc.c: In function 'capgetp':
+cap_proc.c:52: warning: traditional C rejects ISO C style function definitions
+cap_proc.c: In function 'capsetp':
+cap_proc.c:73: warning: traditional C rejects ISO C style function definitions
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -c cap_extint.c -o cap_extint.o
+In file included from cap_extint.c:12:
+libcap.h:57:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:58:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:101:25: warning: ISO C does not permit named variadic macros
+cap_extint.c: In function 'cap_size':
+cap_extint.c:35: warning: traditional C rejects ISO C style function definitions
+cap_extint.c: In function 'cap_copy_ext':
+cap_extint.c:46: warning: traditional C rejects ISO C style function definitions
+cap_extint.c: In function 'cap_copy_int':
+cap_extint.c:89: warning: traditional C rejects ISO C style function definitions
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -c cap_flag.c -o cap_flag.o
+In file included from cap_flag.c:12:
+libcap.h:57:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:58:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:101:25: warning: ISO C does not permit named variadic macros
+cap_flag.c: In function 'cap_get_flag':
+cap_flag.c:22: warning: traditional C rejects ISO C style function definitions
+cap_flag.c:38:32: warning: ISO C99 requires rest arguments to be used
+cap_flag.c: In function 'cap_set_flag':
+cap_flag.c:52: warning: traditional C rejects ISO C style function definitions
+cap_flag.c:81:32: warning: ISO C99 requires rest arguments to be used
+cap_flag.c: In function 'cap_clear':
+cap_flag.c:93: warning: traditional C rejects ISO C style function definitions
+cap_flag.c:101:30: warning: ISO C99 requires rest arguments to be used
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -c cap_text.c -o cap_text.o
+In file included from cap_text.c:14:
+libcap.h:57:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:58:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:101:25: warning: ISO C does not permit named variadic macros
+cap_text.c: In function '_setbits':
+cap_text.c:33: warning: traditional C rejects ISO C style function definitions
+cap_text.c: In function '_clrbits':
+cap_text.c:41: warning: traditional C rejects ISO C style function definitions
+cap_text.c: In function 'namcmp':
+cap_text.c:48: warning: traditional C rejects ISO C style function definitions
+cap_text.c: In function 'lookupname':
+cap_text.c:59: warning: traditional C rejects ISO C style function definitions
+cap_text.c:62: warning: cast discards qualifiers from pointer target type
+cap_text.c: In function 'cap_from_text':
+cap_text.c:80: warning: traditional C rejects ISO C style function definitions
+cap_text.c:86:27: warning: ISO C99 requires rest arguments to be used
+cap_text.c:100: warning: traditional C rejects automatic aggregate initialization
+cap_text.c:162:49: warning: ISO C99 requires rest arguments to be used
+cap_text.c:166:31: warning: ISO C99 requires rest arguments to be used
+cap_text.c:199:52: warning: ISO C99 requires rest arguments to be used
+cap_text.c:208:26: warning: ISO C99 requires rest arguments to be used
+cap_text.c: In function 'getstateflags':
+cap_text.c:224: warning: traditional C rejects ISO C style function definitions
+cap_text.c: In function 'cap_to_text':
+cap_text.c:240: warning: traditional C rejects ISO C style function definitions
+cap_text.c:243: warning: traditional C rejects automatic aggregate initialization
+gcc -Dlinux -ansi -D_POSIX_SOURCE -Wall -Wwrite-strings -Wpointer-arith -Wcast-qual -Wcast-align -Wtraditional -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wshadow -pedantic -g   -I/tmp/libcap-1.10/libcap/include -c cap_sys.c -o cap_sys.o
+In file included from cap_sys.c:10:
+libcap.h:57:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:58:3: warning: suggest hiding #error from traditional C with an indented #
+libcap.h:101:25: warning: ISO C does not permit named variadic macros
+cap_sys.c:14: error: expected declaration specifiers or '...' before 'capget'
+cap_sys.c:15: error: expected declaration specifiers or '...' before 'header'
+cap_sys.c:16: error: expected declaration specifiers or '...' before 'data'
+cap_sys.c:18: warning: return type defaults to 'int'
+cap_sys.c:18: warning: no previous prototype for '_syscall2'
+cap_sys.c: In function '_syscall2':
+cap_sys.c:18: error: expected declaration specifiers before '_syscall2'
+cap_sys.c:20: warning: traditional C rejects ISO C style function definitions
+cap_sys.c:14: error: parameter name omitted
+cap_sys.c:15: error: parameter name omitted
+cap_sys.c:16: error: parameter name omitted
+make[1]: *** [cap_sys.o] Error 1
+make[1]: Leaving directory `/tmp/libcap-1.10/libcap'
+make: *** [all] Error 2
++ exit 1
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/portpkg-devel">More information about the Portpkg-devel
+mailing list</a><br>
+</body></html>
